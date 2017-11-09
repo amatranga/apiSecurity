@@ -5,7 +5,7 @@ const mongoose = require('mongoose')
 const routes = require('./routes/users');
 
 mongoose.Promise = global.Promise;
-mongoose.connect('mongodb://localhost:27010/api-auth');
+mongoose.connect('mongodb://localhost:27017/api-auth');
 
 const app = express();
 
@@ -14,7 +14,7 @@ app.use(bodyParser.json());
 
 app.use('/users', routes);
 
-const port = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => {
   console.log(`Server running at port ${PORT}`);
 });
